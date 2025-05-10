@@ -104,11 +104,15 @@ export default function TaskChatInterface({ workflowId, suggestedTasks, onClose,
         methodComparison: {
           currentMethod: {
             status: 'not_started' as TaskStatus,
-            timeEntries: []
+            timeEntries: [],
+            tools: [],
+            manualTime: null
           },
           aiMethod: {
             status: 'not_started' as TaskStatus,
-            timeEntries: []
+            timeEntries: [],
+            tools: [],
+            manualTime: null
           }
         }
       };
