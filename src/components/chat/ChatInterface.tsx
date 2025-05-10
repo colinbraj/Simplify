@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useWorkflowStore, ChatMessage as ChatMessageType, Task } from '@/context/workflow/WorkflowContext';
+import { useWorkflowStore, ChatMessage as ChatMessageType, Task, TimeEntry } from '@/context/workflow/WorkflowContext';
 import { sendMessageToClaude } from '@/lib/claude/api';
 import { getClaudeConfig } from '@/lib/claude/config';
 import ChatMessage from '@/components/chat/ChatMessage';
@@ -67,16 +67,20 @@ export default function ChatInterface() {
             methodComparison: {
               currentMethod: {
                 status: 'not_started',
-                timeEntries: []
+                timeEntries: [],
+                tools: [],
+                manualTime: null
               },
               aiMethod: {
                 status: 'not_started',
-                timeEntries: []
+                timeEntries: [],
+                tools: [],
+                manualTime: null
               }
             },
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString(),
-          } as Task);
+          } as unknown as Task);
         }
         
         // Start a new task
@@ -152,16 +156,20 @@ export default function ChatInterface() {
         methodComparison: {
           currentMethod: {
             status: 'not_started',
-            timeEntries: []
+            timeEntries: [],
+            tools: [],
+            manualTime: null
           },
           aiMethod: {
             status: 'not_started',
-            timeEntries: []
+            timeEntries: [],
+            tools: [],
+            manualTime: null
           }
         },
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-      } as Task);
+      } as unknown as Task);
     }
     
     return tasks;
