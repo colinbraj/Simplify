@@ -1,0 +1,6 @@
+# Netlify redirects file
+# Handle SPA routing
+/*    /index.html   200
+
+# API routes should be handled by Next.js
+/api/*  /.netlify/functions/next_api  200
